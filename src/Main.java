@@ -4,6 +4,12 @@ public class Main  {
 
 
         System.out.println("Hello world ");
+
+        Basket basket = new Basket();
+
+        Product toy = new Product("Toy", 3, 4);
+
+        basket.addToBasket(toy);
     }
 
 }
