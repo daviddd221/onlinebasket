@@ -1,16 +1,35 @@
+import java.util.Scanner;
+
 /**
  * Created by David on 2017-06-15.
  */
 public class Product {
 
+    Scanner in = new Scanner(System.in);
+
     private String nameProduct;
     private int quantity;
     private double price;
+    private String category;
 
-    public Product(String nameProduct, int quantity, double price) {
+    public Product(String nameProduct, int quantity, double price, String category) {
         this.nameProduct = nameProduct;
         this.quantity = quantity;
         this.price = price;
+        this.category = category;
+    }
+
+    public Product createProduct() {
+        System.out.println("Podaj nazwe produktu");
+        String name = in.nextLine();
+        System.out.println("Podaj ilość sztuk");
+        int quantity = in.nextInt();
+        System.out.println("Podaj cenę za sztukę");
+        double price = in.nextDouble();
+        System.out.println("Podaj kategorie");
+        String category = in.nextLine();
+
+        return new Product(name, quantity, price, category);
     }
 
     public String getNameProduct() {
@@ -37,10 +56,19 @@ public class Product {
         this.price = price;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     @Override
     public String toString() {
         return "Product name: " + nameProduct +
                 ", quantity " + quantity +
-                ", price " + price;
+                ", price " + price +
+                ", category " + category;
     }
 }

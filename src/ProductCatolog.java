@@ -22,7 +22,7 @@ public class ProductCatolog {
         }
     }
 
-    public Product displayProduct(String product) {
+    public Product findProduct(String product) {
         for (Product p : listOfProducts) {
             if (p.getNameProduct().equalsIgnoreCase(product)) {
                 return p;
