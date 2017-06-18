@@ -6,9 +6,10 @@ import java.util.List;
  */
 public class Basket {
 
-    Customer customer = new Customer("Dawid", "Cichecki", 1000);
-
-    List<Product> basket = new ArrayList<>();
+    private Long id;
+    private int capacity;
+    private Customer customer;
+    private List<Product> basket = new ArrayList<>();
 
     public void addToBasket(Product product) {
         basket.add(product);
@@ -18,5 +19,37 @@ public class Basket {
         for (Product p : basket) {
             System.out.println(p);
         }
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public List<Product> getBasket() {
+        return basket;
+    }
+
+    public void setBasket(List<Product> basket) {
+        this.basket = basket;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

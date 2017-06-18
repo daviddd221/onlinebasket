@@ -5,12 +5,12 @@ public class Product {
 
     private String nameProduct;
     private int quantity;
-    private double value;
+    private double price;
 
-    public Product(String nameProduct, int quantity, double value) {
+    public Product(String nameProduct, int quantity, double price) {
         this.nameProduct = nameProduct;
         this.quantity = quantity;
-        this.value = value;
+        this.price = price;
     }
 
     public String getNameProduct() {
@@ -29,11 +29,18 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public double getValue() {
-        return value;
+    public double getPrice() {
+        return price;
     }
 
-    public void setValue(double value) {
-        this.value = value;
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Product name: " + nameProduct +
+                ", quantity " + quantity +
+                ", price " + price;
     }
 }
