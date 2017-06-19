@@ -11,7 +11,7 @@ public class Basket {
     private Customer customer;
     private List<Product> basket = new ArrayList<>();
 
-    public void addToBasket(Product product) {
+    public void addToBasket(Product product, int quantity) {
         basket.add(product);
     }
 
@@ -20,6 +20,16 @@ public class Basket {
             System.out.println(p);
         }
     }
+
+    public double valueOfBasket() {
+        double amount = 0;
+        for (Product p : basket) {
+            amount = amount + (p.getPrice() * p.getQuantity());
+        }
+        return amount;
+    }
+
+
 
     public int getCapacity() {
         return capacity;

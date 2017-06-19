@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -27,7 +29,7 @@ public class Product {
         System.out.println("Podaj cenę za sztukę");
         double price = in.nextDouble();
         System.out.println("Podaj kategorie");
-        String category = in.nextLine();
+        String category = in.next();
 
         return new Product(name, quantity, price, category);
     }
@@ -67,8 +69,8 @@ public class Product {
     @Override
     public String toString() {
         return "Product name: " + nameProduct +
-                ", quantity " + quantity +
-                ", price " + price +
-                ", category " + category;
+                ", Quantity " + quantity +
+                ", Price " + price +
+                ", Category " + category;
     }
 }
