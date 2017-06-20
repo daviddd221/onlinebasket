@@ -29,9 +29,9 @@ public class Main  {
 //        System.out.println(catalog.findProduct("car"));
 
        // hp1.createProduct();
-//        catalog.saveToFile("BazaDanych.txt");
+       catalog.saveToFile("BazaPrzedmiotow.txt");
 //
-//        catalog.loadFromFile("BazaDanych.txt");
+       catalog.loadFromFile("BazaPrzedmiotow.txt");
 //        catalog.displayCatalog();
 
         Payment payment = new Payment();

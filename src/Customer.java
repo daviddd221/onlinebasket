@@ -6,11 +6,18 @@ public class Customer {
     private String name;
     private String surname;
     private double wallet;
+    private String login;
+    private String haslo;
 
     public Customer(String name, String surname, double wallet) {
         this.name = name;
         this.surname = surname;
         this.wallet = wallet;
+    }
+
+    public Customer(String login, String haslo) {
+        this.login = login;
+        this.haslo = haslo;
     }
 
     public String getName() {
