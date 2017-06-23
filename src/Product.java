@@ -13,12 +13,39 @@ public class Product {
     private int quantity;
     private double price;
     private String category;
+    private int pieces;
+    private int id;
 
-    public Product(String nameProduct, int quantity, double price, String category) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Scanner getIn() {
+        return in;
+    }
+
+    public void setIn(Scanner in) {
+        this.in = in;
+    }
+
+    public int getPieces() {
+        return pieces;
+    }
+
+    public void setPieces(int pieces) {
+        this.pieces = pieces;
+    }
+
+    public Product(String nameProduct, int quantity, double price, String category, int id) {
         this.nameProduct = nameProduct;
         this.quantity = quantity;
         this.price = price;
         this.category = category;
+        this.id = id;
     }
 
     public Product createProduct() {
@@ -30,8 +57,10 @@ public class Product {
         double price = in.nextDouble();
         System.out.println("Podaj kategorie");
         String category = in.next();
+        System.out.println("Podaj id");
+        int id = in.nextInt();
 
-        return new Product(name, quantity, price, category);
+        return new Product(name, quantity, price, category, id);
     }
 
     public String getNameProduct() {

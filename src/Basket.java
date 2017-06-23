@@ -10,21 +10,27 @@ public class Basket {
     private int capacity;
     private Customer customer;
     private List<Product> basket = new ArrayList<>();
+    ProductCatolog catalog = new ProductCatolog();
 
     public void addToBasket(Product product, int quantity) {
+        if(product.getQuantity() >= quantity){
+            product.setQuantity(product.getQuantity() - quantity);
+            product.setPieces(quantity);
+        }
         basket.add(product);
+        System.out.println("Dodano!");
     }
 
     public void displayBasket() {
         for (Product p : basket) {
-            System.out.println(p);
+            System.out.println("1. " + p.getNameProduct() + " ilosc " + p.getPieces() + " cena za sztuke "+ p.getPrice());
         }
     }
 
     public double valueOfBasket() {
         double amount = 0;
         for (Product p : basket) {
-            amount = amount + (p.getPrice() * p.getQuantity());
+            amount = p.getPrice() * p.getPieces();
         }
         return amount;
     }

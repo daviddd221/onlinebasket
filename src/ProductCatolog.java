@@ -22,7 +22,7 @@ public class ProductCatolog {
 
     public void displayCatalog() {
         for (Product p : listOfProducts) {
-            System.out.println("Nazwa " + p.getNameProduct() + " ilosc " + p.getQuantity() + " cena " +p.getPrice());
+            System.out.println(p.getId()+"."+" Nazwa " + p.getNameProduct() + " ilosc " + p.getQuantity() + " cena " +p.getPrice());
         }
     }
 
@@ -30,6 +30,15 @@ public class ProductCatolog {
         for (Product p : listOfProducts) {
             if (p.getNameProduct().equalsIgnoreCase(product)) {
                 return p;
+            }
+        }
+        return null;
+    }
+
+    public Product findById(int id) {
+        for (Product i : listOfProducts) {
+            if (i.getId() == id) {
+                return i;
             }
         }
         return null;
@@ -52,7 +61,7 @@ public class ProductCatolog {
             String line = in.nextLine();
             String tab[] = line.split(" ");
 
-            addToCatalog(new Product(tab[0], Integer.parseInt(tab[1]), Double.parseDouble(tab[2]), tab[3]));
+            addToCatalog(new Product(tab[0], Integer.parseInt(tab[1]), Double.parseDouble(tab[2]), tab[3], Integer.parseInt(tab[4])));
         }
     }
 

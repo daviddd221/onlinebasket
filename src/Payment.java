@@ -6,11 +6,11 @@ public class Payment {
     Customer tadek = new Customer("Tadek", "Kowalski", 300);
 
 
-    public void purchase(double basket) {
-        if (tadek.getWallet() > basket) {
-            tadek.setWallet(tadek.getWallet() - basket);
+    public void purchase(double basket, Customer customer) {
+        if (customer.getWallet() > basket) {
+            customer.setWallet(customer.getWallet() - basket);
             System.out.println("Kupiles przedmiot, nastepnym razem kup 3 razy tyle !!");
-            System.out.println("Wartosc Twojego portfela wynosi " + tadek.getWallet());
+            System.out.println("Wartosc Twojego portfela wynosi " + customer.getWallet());
         }
         else {
             System.out.println("Nie masz piniedzy wypierdalaj ze sklepu chamie");
