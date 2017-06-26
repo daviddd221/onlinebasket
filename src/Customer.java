@@ -7,17 +7,34 @@ public class Customer {
     private String surname;
     private double wallet;
     private String login;
-    private String haslo;
+    private String password;
 
-    public Customer(String name, String surname, double wallet) {
+    public Customer(String name, String surname, double wallet, String login, String password) {
         this.name = name;
         this.surname = surname;
         this.wallet = wallet;
+        this.login = login;
+        this.password = password;
     }
 
-    public Customer(String login, String haslo) {
+    public Customer() {
+
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
         this.login = login;
-        this.haslo = haslo;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {

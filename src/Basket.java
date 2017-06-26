@@ -10,15 +10,37 @@ public class Basket {
     private int capacity;
     private Customer customer;
     private List<Product> basket = new ArrayList<>();
-    ProductCatolog catalog = new ProductCatolog();
+    //brak modyfikatora dostepu
+    private ProductCatolog catalog = new ProductCatolog();
 
     public void addToBasket(Product product, int quantity) {
-        if(product.getQuantity() >= quantity){
-            product.setQuantity(product.getQuantity() - quantity);
-            product.setPieces(quantity);
+        if(chceckQuantityProducts(product,quantity)){
+            changeQuantity(product,quantity);
+            basket.add(product);
+            System.out.println("Dodano!");
         }
-        basket.add(product);
-        System.out.println("Dodano!");
+        else {
+            System.out.println("Nie udało się dodać produktu");
+        }
+    }
+
+    public boolean chceckQuantityProducts(Product product, int quantity) {
+        if(product.getQuantity() >= quantity && quantity != 0 && quantity > 0) {
+            return true;
+        }
+        else if (quantity == 0) {
+            System.out.println("Podałeś za mało sztuk towaru");
+            return false;
+        }
+        else {
+            System.out.println("Nie ma na stanie tylu sztuk produktu " );
+            return false;
+        }
+    }
+
+    public void changeQuantity(Product product, int quantity) {
+        product.setQuantity(product.getQuantity() - quantity);
+        product.setPieces(quantity);
     }
 
     public void displayBasket() {

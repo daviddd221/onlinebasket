@@ -1,12 +1,10 @@
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
  * Created by David on 2017-06-15.
  */
 public class Product {
-
+// uporzadkuj ta klase
     Scanner in = new Scanner(System.in);
 
     private String nameProduct;
@@ -15,30 +13,6 @@ public class Product {
     private String category;
     private int pieces;
     private int id;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Scanner getIn() {
-        return in;
-    }
-
-    public void setIn(Scanner in) {
-        this.in = in;
-    }
-
-    public int getPieces() {
-        return pieces;
-    }
-
-    public void setPieces(int pieces) {
-        this.pieces = pieces;
-    }
 
     public Product(String nameProduct, int quantity, double price, String category, int id) {
         this.nameProduct = nameProduct;
@@ -53,8 +27,10 @@ public class Product {
         String name = in.nextLine();
         System.out.println("Podaj ilość sztuk");
         int quantity = in.nextInt();
+        checkQuantity(quantity); // <<-----------------------------
         System.out.println("Podaj cenę za sztukę");
         double price = in.nextDouble();
+        checkPrice(price); // <<-------------------------------
         System.out.println("Podaj kategorie");
         String category = in.next();
         System.out.println("Podaj id");
@@ -62,6 +38,22 @@ public class Product {
 
         return new Product(name, quantity, price, category, id);
     }
+
+    public void checkQuantity(int quantity) {
+        while (quantity <= 0) {
+            System.out.println("Podałeś za mało sztuk. Podaj jeszcze raz");
+            quantity = in.nextInt();
+        }
+    }
+
+    public void checkPrice(double price) {
+        while (price <= 0) {
+            System.out.println("Podałeś za małą cene. Podaj jeszcze raz");
+            price = in.nextDouble();
+        }
+    }
+
+
 
     public String getNameProduct() {
         return nameProduct;
@@ -93,6 +85,30 @@ public class Product {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Scanner getIn() {
+        return in;
+    }
+
+    public void setIn(Scanner in) {
+        this.in = in;
+    }
+
+    public int getPieces() {
+        return pieces;
+    }
+
+    public void setPieces(int pieces) {
+        this.pieces = pieces;
     }
 
     @Override

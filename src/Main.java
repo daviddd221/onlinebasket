@@ -1,6 +1,6 @@
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
+//JEDEN WIELKI ROZPIERDOL TU JEST
 public class Main  {
     public static void main(String[] args) throws FileNotFoundException {
 
@@ -8,11 +8,12 @@ public class Main  {
         //odczytuj produktu rowniez z pliku tekstowego :)
         // good luck!
         Scanner in = new Scanner(System.in);
-        Customer tadek = new Customer("Tadek", "Kowalski", 200);
+        Customer tadek = new Customer();
         Basket basket = new Basket();
         ProductCatolog catalog = new ProductCatolog();
-        Product puzzle = new Product("Puzzle", 3, 2, "Toy", 1 );
-        Product car = new Product("Car", 6, 10,"Toy", 2);
+        Registration register = new Registration();
+        Product puzzle = new Product("Puzzle", 3, 2, "Toy", 1);
+        Product car = new Product("Car", 6, 10, "Toy", 2);
         Product bear = new Product("Bear", 1, 8, "Toy", 3);
 
         Product hp1 = new Product("Harry Potter i Kamień Filozoficzny", 1, 49, "Book", 4);
@@ -22,13 +23,10 @@ public class Main  {
         catalog.addToCatalog(car);
         catalog.addToCatalog(bear);
 
-
-
-
-
+//co to kurwa jest ????
 //        System.out.println(catalog.findProduct("car"));
 
-       // hp1.createProduct();
+        // hp1.createProduct();
 //       catalog.saveToFile("BazaPrzedmiotow.txt");
 ////
 //       catalog.loadFromFile("BazaPrzedmiotow.txt");
@@ -43,27 +41,44 @@ public class Main  {
         System.out.println("2. Wyswietl produkty ");
         System.out.println("3. Dodaj do koszyka");
         System.out.println("4. Wyswietl koszyk");
-        int wybor = in.nextInt();
+        System.out.println("5. Stworz klienta");
+        System.out.println("6. Pokaz klientow");
 
+        int wybor = in.nextInt();
         while (wybor != 0) {
-            if (wybor == 1) {
-                catalog.addToCatalog(puzzle.createProduct());
+            switch (wybor) {
+                case 1:
+                    catalog.addToCatalog(puzzle.createProduct());
+                    break;
+
+                case 2:
+                    catalog.displayCatalog();
+                    break;
+
+                case 3:
+                    catalog.displayCatalog();
+                    System.out.println("Podaj numer przedmiotu");
+                    wybor = in.nextInt();
+                    System.out.println("Podaj ilosc");
+                    int ilosc = in.nextInt();
+                    basket.addToBasket(catalog.findById(wybor), ilosc);
+                    break;
+
+                case 4:
+                    basket.displayBasket();
+                    break;
+
+                case 5:
+                    register.addCustomer(register.registration());
+                    break;
+
+                case 6:
+                    register.displayCustomers();
+
+                default:
+                    System.out.println("blad");
             }
-            if (wybor == 2) {
-                catalog.displayCatalog();
-            }
-            if (wybor == 3) {
-                catalog.displayCatalog();
-                System.out.println("Podaj numer przedmiotu");
-                wybor = in.nextInt();
-                System.out.println("Podaj ilosc");
-                int ilosc = in.nextInt();
-                basket.addToBasket(catalog.findById(wybor), ilosc);
-            }
-            if (wybor == 4) {
-                basket.displayBasket();
-            }
-            System.out.println("-------------------------------------------------------");
+            System.out.println("-----------------------------------------------------------------------------------");
             System.out.println("Co chcesz zrobic");
             System.out.println("1. Stwórz produkt ");
             System.out.println("2. Wyswietl produkty ");

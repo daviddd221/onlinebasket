@@ -9,7 +9,7 @@ import java.util.Scanner;
  * Created by David on 2017-06-18.
  */
 public class ProductCatolog {
-
+    //pomysl tutaj tez nad walidacja
     //w ktorej bede zawarte wszystkie dostepne produkty
     // bedzie miala metode, ktora wyswietli wszystkie produkty
     //bedzie posiadac metode ktora bedzie zwracala wybrany produkt
@@ -18,15 +18,16 @@ public class ProductCatolog {
 
     public void addToCatalog(Product product) {
         listOfProducts.add(product);
+        System.out.println("Dodano");
     }
 
     public void displayCatalog() {
         for (Product p : listOfProducts) {
-            System.out.println(p.getId()+"."+" Nazwa " + p.getNameProduct() + " ilosc " + p.getQuantity() + " cena " +p.getPrice());
+            System.out.println(p.getId()+"."+"Nazwa " + p.getNameProduct() + " ilosc " + p.getQuantity() + " cena " +p.getPrice());
         }
     }
 
-    public Product findProduct(String product) {
+    public Product findByName(String product) {
         for (Product p : listOfProducts) {
             if (p.getNameProduct().equalsIgnoreCase(product)) {
                 return p;
