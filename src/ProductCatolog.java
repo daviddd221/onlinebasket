@@ -51,7 +51,7 @@ public class ProductCatolog {
         for (Product p : listOfProducts) {
             save.println(p.getNameProduct() + " " + p.getQuantity() + " " + p.getPrice() + " " + p.getCategory());
         }
-        save.close();
+
     }
 
     public void loadFromFile(String path) throws FileNotFoundException {

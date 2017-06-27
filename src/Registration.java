@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -30,6 +33,27 @@ public class Registration {
     public void displayCustomers() {
         for (Customer c : registeredCustomers) {
             System.out.println("Login " +c.getLogin() + " Hasło " + c.getPassword());
+        }
+    }
+
+    public void saveCustomersToFile(String path) throws FileNotFoundException {
+        PrintWriter save = new PrintWriter(path);
+        for (Customer c : registeredCustomers) {
+            save.println(c.getName() + " " + c.getSurname() + " " + c.getWallet() + " " + c.getLogin() + " " + c.getPassword());
+        }
+        save.close();
+    }
+
+    public void loadCustomersFromFile(String path) throws FileNotFoundException {
+        File file = new File(path);
+        Scanner scanner = new Scanner(file);
+
+        while (scanner.hasNext()) {
+
+            String line = scanner.nextLine();
+            String tab[] = line.split(" ");
+
+            addCustomer(new Customer(tab[0], tab[1], Double.parseDouble(tab[2]), tab[3], tab[4]));
         }
     }
 

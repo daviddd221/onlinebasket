@@ -1,1 +1,2 @@
 1. Pomysl na mechanizmem walidowania danych!
+2. setPices zmienia wartosc jak doda sie 2 te same produkty

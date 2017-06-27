@@ -60,4 +60,15 @@ public class Customer {
     public void setWallet(double wallet) {
         this.wallet = wallet;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", wallet=" + wallet +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

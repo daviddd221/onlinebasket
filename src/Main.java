@@ -23,6 +23,7 @@ public class Main  {
         catalog.addToCatalog(car);
         catalog.addToCatalog(bear);
 
+
 //co to kurwa jest ????
 //        System.out.println(catalog.findProduct("car"));
 
@@ -37,12 +38,15 @@ public class Main  {
         payment.purchase(basket.valueOfBasket(), tadek);
 
         System.out.println("Co chcesz zrobic");
-        System.out.println("1. Stwórz produkt ");
+        System.out.println("1. Stwórz produkt");
         System.out.println("2. Wyswietl produkty ");
         System.out.println("3. Dodaj do koszyka");
         System.out.println("4. Wyswietl koszyk");
         System.out.println("5. Stworz klienta");
         System.out.println("6. Pokaz klientow");
+        System.out.println("7. Zapisz do pliku");
+        System.out.println("8. Wczytaj z pliku");
+
 
         int wybor = in.nextInt();
         while (wybor != 0) {
@@ -56,7 +60,10 @@ public class Main  {
                     break;
 
                 case 3:
+                    System.out.println();
+                    System.out.println("Co chcesz dodać?");
                     catalog.displayCatalog();
+                    System.out.println();
                     System.out.println("Podaj numer przedmiotu");
                     wybor = in.nextInt();
                     System.out.println("Podaj ilosc");
@@ -74,6 +81,15 @@ public class Main  {
 
                 case 6:
                     register.displayCustomers();
+                    break;
+
+                case 7:
+                    register.saveCustomersToFile("BazaKlientow.txt");
+                    break;
+
+                case 8:
+                    register.loadCustomersFromFile("BazaKlientow.txt");
+                    break;
 
                 default:
                     System.out.println("blad");
@@ -84,6 +100,10 @@ public class Main  {
             System.out.println("2. Wyswietl produkty ");
             System.out.println("3. Dodaj do koszyka");
             System.out.println("4. Wyswietl koszyk");
+            System.out.println("5. Stworz klienta");
+            System.out.println("6. Pokaz klientow");
+            System.out.println("7. Zapisz do pliku");
+            System.out.println("8. Wczytaj z pliku");
             wybor = in.nextInt();
         }
     }

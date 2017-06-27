@@ -6,7 +6,7 @@ import java.util.List;
  */
 public class Basket {
 
-    private Long id;
+    private int id;
     private int capacity;
     private Customer customer;
     private List<Product> basket = new ArrayList<>();
@@ -40,7 +40,9 @@ public class Basket {
 
     public void changeQuantity(Product product, int quantity) {
         product.setQuantity(product.getQuantity() - quantity);
-        product.setPieces(quantity);
+        if (product.getPieces() >= 0) {
+            product.setPieces(product.getPieces() + quantity);
+        }
     }
 
     public void displayBasket() {
@@ -52,11 +54,11 @@ public class Basket {
     public double valueOfBasket() {
         double amount = 0;
         for (Product p : basket) {
+            p.setPrice(0);
             amount = p.getPrice() * p.getPieces();
         }
         return amount;
     }
-
 
 
     public int getCapacity() {
@@ -83,11 +85,11 @@ public class Basket {
         this.basket = basket;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 }
