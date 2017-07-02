@@ -1,9 +1,8 @@
 import java.io.FileNotFoundException;
-import java.util.Scanner;
-//JEDEN WIELKI ROZPIERDOL TU JEST
+
 public class Main  {
     public static void main(String[] args) throws FileNotFoundException {
-//rozpierdol ogolny
+
         ShopOnline build = new ShopOnline();
 
         System.out.println("Co chcesz zrobic");

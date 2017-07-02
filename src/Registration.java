@@ -7,11 +7,11 @@ import java.util.*;
  * Created by David on 2017-06-18.
  */
 public class Registration {
-    //modyfikatory
+
     //nie tworz obiektow w ten sposob, jak juz to w konstruktorze
-    Scanner in = new Scanner(System.in);
+    private Scanner in = new Scanner(System.in);
     private List<Customer> registeredCustomers = new LinkedList<>();
-    Random rnd = new Random();
+    private Random rnd = new Random();
 
     public Customer registration() {
         CustomerBuilder customerBuilder = new CustomerBuilder();

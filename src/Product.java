@@ -4,7 +4,7 @@ import java.util.Scanner;
  * Created by David on 2017-06-15.
  */
 public class Product {
-// uporzadkuj ta klase
+
     //modifkator, przeformatuj kod klasy
     Scanner in = new Scanner(System.in);
 

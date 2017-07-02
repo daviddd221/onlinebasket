@@ -5,8 +5,6 @@ import java.util.Scanner;
  * Created by David on 2017-06-18.
  */
 public class Login {
-    //    ha kurwa wiedzialem
-    //gdzie modyfikator dostepu?  co to za kaszana ma byc
     private Registration registered;
     Scanner in;
 

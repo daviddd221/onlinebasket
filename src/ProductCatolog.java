@@ -9,10 +9,6 @@ import java.util.Scanner;
  * Created by David on 2017-06-18.
  */
 public class ProductCatolog {
-    //pomysl tutaj tez nad walidacja
-    //w ktorej bede zawarte wszystkie dostepne produkty
-    // bedzie miala metode, ktora wyswietli wszystkie produkty
-    //bedzie posiadac metode ktora bedzie zwracala wybrany produkt
 
     private List<Product> listOfProducts = new ArrayList<>();
 
