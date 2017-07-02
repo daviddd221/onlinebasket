@@ -4,7 +4,7 @@
 public class Payment {
 
     //na sztywno nie hardkoduj danych tak jak tutaj, przetryzmuj ich w pliku np;.
-
+    //rozbuduj ta klase
     public void purchase(double basket, Customer customer) {
         if (customer.getWallet() > basket) {
             customer.setWallet(customer.getWallet() - basket);

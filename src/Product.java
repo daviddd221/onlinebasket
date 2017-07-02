@@ -5,6 +5,7 @@ import java.util.Scanner;
  */
 public class Product {
 // uporzadkuj ta klase
+    //modifkator, przeformatuj kod klasy
     Scanner in = new Scanner(System.in);
 
     private String nameProduct;
@@ -20,6 +21,10 @@ public class Product {
         this.price = price;
         this.category = category;
         this.id = id;
+    }
+
+    public Product() {
+
     }
 
     public Product createProduct() {

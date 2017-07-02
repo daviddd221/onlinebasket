@@ -8,17 +8,26 @@ public class Customer {
     private double wallet;
     private String login;
     private String password;
+    private int id;
 
-    public Customer(String name, String surname, double wallet, String login, String password) {
+    public Customer(String name, String surname, double wallet, String login, String password, int id) {
         this.name = name;
         this.surname = surname;
         this.wallet = wallet;
         this.login = login;
         this.password = password;
+        this.id = id;
     }
 
-    public Customer() {
+//    public void createId() {
+//
+//    }
+//
+//    public void findCustomerById(int id) {
+//        for (int i )
+//    }
 
+    public Customer() {
     }
 
     public String getLogin() {
@@ -59,6 +68,14 @@ public class Customer {
 
     public void setWallet(double wallet) {
         this.wallet = wallet;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

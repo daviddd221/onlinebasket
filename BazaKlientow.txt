@@ -1,1 +1,3 @@
-null null 0.0 aaa bbbcccccccccccccccccccccccccccc
+imieA nazwiskoA 2.0 aaa aaa
+imieX nazwiskoX 2.0 bbb bbb
+imieC imieC 2.0 ccc ccc

@@ -4,24 +4,42 @@ import java.util.List;
 /**
  * Created by David on 2017-06-15.
  */
+//przeformatuj klos w calej klasie
 public class Basket {
 
     private int id;
     private int capacity;
     private Customer customer;
     private List<Product> basket = new ArrayList<>();
-    //brak modyfikatora dostepu
     private ProductCatolog catalog = new ProductCatolog();
 
     public void addToBasket(Product product, int quantity) {
+        //tutaj jest za duzo  ifologii, pomysl jak to mozna rozwiazac bardziej jasno
+
         if(chceckQuantityProducts(product,quantity)){
             changeQuantity(product,quantity);
-            basket.add(product);
-            System.out.println("Dodano!");
+            if (repeats(product)) {
+                changePieces(product, quantity);
+            }
+            else {
+                basket.add(product);
+                System.out.println("Dodano!");
+                changePieces(product,quantity);
+            }
         }
         else {
             System.out.println("Nie udało się dodać produktu");
         }
+    }
+
+    //nazwa metoda malo mowi, nie wiem o co chodzi
+    public boolean repeats(Product product){
+        for (Product p : basket) {
+            if (p.getId() == product.getId()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean chceckQuantityProducts(Product product, int quantity) {
@@ -40,9 +58,10 @@ public class Basket {
 
     public void changeQuantity(Product product, int quantity) {
         product.setQuantity(product.getQuantity() - quantity);
-        if (product.getPieces() >= 0) {
+    }
+
+    public void changePieces(Product product, int quantity) {
             product.setPieces(product.getPieces() + quantity);
-        }
     }
 
     public void displayBasket() {

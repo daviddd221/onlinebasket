@@ -34,6 +34,11 @@ public class CustomerBuilder {
         return this;
     }
 
+    public CustomerBuilder withId(int id) {
+        customer.setId(id);
+        return this;
+    }
+
     public Customer build() {
         return customer;
     }

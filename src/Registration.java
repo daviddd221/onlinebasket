@@ -1,17 +1,17 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by David on 2017-06-18.
  */
 public class Registration {
-
+    //modyfikatory
+    //nie tworz obiektow w ten sposob, jak juz to w konstruktorze
     Scanner in = new Scanner(System.in);
     private List<Customer> registeredCustomers = new LinkedList<>();
+    Random rnd = new Random();
 
     public Customer registration() {
         CustomerBuilder customerBuilder = new CustomerBuilder();
@@ -26,7 +26,7 @@ public class Registration {
                 .build();
     }
 
-    public void addCustomer(Customer customer) {
+    public void addCustomer(Customer customer ) {
         registeredCustomers.add(customer);
     }
 
@@ -35,6 +35,7 @@ public class Registration {
             System.out.println("Login " +c.getLogin() + " Hasło " + c.getPassword());
         }
     }
+
 
     public void saveCustomersToFile(String path) throws FileNotFoundException {
         PrintWriter save = new PrintWriter(path);
@@ -53,8 +54,15 @@ public class Registration {
             String line = scanner.nextLine();
             String tab[] = line.split(" ");
 
-            addCustomer(new Customer(tab[0], tab[1], Double.parseDouble(tab[2]), tab[3], tab[4]));
+            addCustomer(new Customer(tab[0], tab[1], Double.parseDouble(tab[2]), tab[3], tab[4], Integer.parseInt(tab[5])));
         }
     }
 
+    public List<Customer> getRegisteredCustomers() {
+        return registeredCustomers;
+    }
+
+    public void setRegisteredCustomers(List<Customer> registeredCustomers) {
+        this.registeredCustomers = registeredCustomers;
+    }
 }

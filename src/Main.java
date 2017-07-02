@@ -3,39 +3,8 @@ import java.util.Scanner;
 //JEDEN WIELKI ROZPIERDOL TU JEST
 public class Main  {
     public static void main(String[] args) throws FileNotFoundException {
-
-        // zapisz produkty do pliku tekstowego, bedzie na razie sluzyc nam za bazde danych
-        //odczytuj produktu rowniez z pliku tekstowego :)
-        // good luck!
-        Scanner in = new Scanner(System.in);
-        Customer tadek = new Customer();
-        Basket basket = new Basket();
-        ProductCatolog catalog = new ProductCatolog();
-        Registration register = new Registration();
-        Product puzzle = new Product("Puzzle", 3, 2, "Toy", 1);
-        Product car = new Product("Car", 6, 10, "Toy", 2);
-        Product bear = new Product("Bear", 1, 8, "Toy", 3);
-
-        Product hp1 = new Product("Harry Potter i Kamień Filozoficzny", 1, 49, "Book", 4);
-
-
-        catalog.addToCatalog(puzzle);
-        catalog.addToCatalog(car);
-        catalog.addToCatalog(bear);
-
-
-//co to kurwa jest ????
-//        System.out.println(catalog.findProduct("car"));
-
-        // hp1.createProduct();
-//       catalog.saveToFile("BazaPrzedmiotow.txt");
-////
-//       catalog.loadFromFile("BazaPrzedmiotow.txt");
-////        catalog.displayCatalog();
-
-        Payment payment = new Payment();
-
-        payment.purchase(basket.valueOfBasket(), tadek);
+//rozpierdol ogolny
+        ShopOnline build = new ShopOnline();
 
         System.out.println("Co chcesz zrobic");
         System.out.println("1. Stwórz produkt");
@@ -46,50 +15,64 @@ public class Main  {
         System.out.println("6. Pokaz klientow");
         System.out.println("7. Zapisz do pliku");
         System.out.println("8. Wczytaj z pliku");
+        System.out.println("9. Zaloguj");
 
 
-        int wybor = in.nextInt();
+        int wybor = build.getIn().nextInt();
         while (wybor != 0) {
             switch (wybor) {
                 case 1:
-                    catalog.addToCatalog(puzzle.createProduct());
+                    build.getProductCatolog().addToCatalog(build.getProduct().createProduct());
                     break;
 
                 case 2:
-                    catalog.displayCatalog();
+                    build.getProductCatolog().displayCatalog();
                     break;
 
                 case 3:
                     System.out.println();
                     System.out.println("Co chcesz dodać?");
-                    catalog.displayCatalog();
+                    build.getProductCatolog().displayCatalog();
                     System.out.println();
                     System.out.println("Podaj numer przedmiotu");
-                    wybor = in.nextInt();
+                    wybor = build.getIn().nextInt();
                     System.out.println("Podaj ilosc");
-                    int ilosc = in.nextInt();
-                    basket.addToBasket(catalog.findById(wybor), ilosc);
+                    int ilosc = build.getIn().nextInt();
+                    build.getBasket().addToBasket(build.getProductCatolog().findById(wybor), ilosc);
                     break;
 
                 case 4:
-                    basket.displayBasket();
+                    build.getBasket().displayBasket();
                     break;
 
                 case 5:
-                    register.addCustomer(register.registration());
+                    build.getRegister().addCustomer(build.getRegister().registration());
                     break;
 
                 case 6:
-                    register.displayCustomers();
+                    build.getRegister().displayCustomers();
                     break;
 
                 case 7:
-                    register.saveCustomersToFile("BazaKlientow.txt");
+                    build.getRegister().saveCustomersToFile("BazaKlientow.txt");
                     break;
 
                 case 8:
-                    register.loadCustomersFromFile("BazaKlientow.txt");
+                    build.getRegister().loadCustomersFromFile("BazaKlientow.txt");
                     break;
+
+                case 9:
+                    System.out.println("Podaj login");
+                    String login0 = build.getIn().nextLine();
+                    System.out.println("Podaj hasło");
+                    String password = build.getIn().nextLine();
+                    build.getLogin().logowanie(login0, password);
+                    break;
+
+//                case 10:
+//                    System.out.println("Którego klienta chcesz edytować");
+//                    int numer = in.nextInt();
+//                    modify.modifyCustomer(numer);
 
                 default:
                     System.out.println("blad");
@@ -104,8 +87,10 @@ public class Main  {
             System.out.println("6. Pokaz klientow");
             System.out.println("7. Zapisz do pliku");
             System.out.println("8. Wczytaj z pliku");
-            wybor = in.nextInt();
+            System.out.println("9. Zaloguj");
+            wybor = build.getIn().nextInt();
         }
     }
 
 }
+
